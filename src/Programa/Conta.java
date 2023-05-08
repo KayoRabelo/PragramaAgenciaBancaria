@@ -1,5 +1,7 @@
 package Programa;
 
+import javax.swing.JOptionPane;
+
 import utilitarios.Utils;
 
 public class Conta {
@@ -45,10 +47,10 @@ public class Conta {
 	public void depositar(Double valor) {
 		if(valor > 0) {
 			setSaldo(getSaldo() + valor);
-			System.out.println("seu saldo foi depositado");
+			JOptionPane.showMessageDialog(null,"Seu deposito foi realizado com sucesso");
 			
 		} else {
-			System.out.println("não foi depositado seu kenga"); 
+			JOptionPane.showMessageDialog(null,"Não foi possível realizar o saque!"); 
 		
 			
 		}
@@ -56,8 +58,10 @@ public class Conta {
      public void sacar (Double valor) {
     	 if  (valor > 0 && this.getSaldo() >= valor) {
     		 setSaldo(getSaldo() - valor);
-    		 System.out.println("saque foi realizado")
-    	 } else { System.out.println("não foi depositado seu kenga"); }
+    		 
+    		 JOptionPane.showMessageDialog(null,"saque foi realizado");
+    		 
+    	 } else { JOptionPane.showMessageDialog(null,"Não foi possível realizar o saque!");}
      }
      
      public void transferir(Conta contaParaDeposito, Double valor) {
@@ -65,9 +69,9 @@ public class Conta {
     		 setSaldo(getSaldo() - valor);
     		 
     		 contaParaDeposito.saldo = contaParaDeposito.getSaldo() + valor;
-    		 System.out.println("transferencia realizada");
+    		 JOptionPane.showMessageDialog(null,"Transferencia realizada com sucesso!");
     	 } else {
-    		 System.out.println("não foi possivel realizar a transferencia");
+    		 JOptionPane.showMessageDialog(null, "não foi possivel realizar a transferencia");
     	 }
      }
 }
